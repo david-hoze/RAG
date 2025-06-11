@@ -533,7 +533,7 @@ def to_markdown(
                     )
                 ]
                 for i, _ in tab_candidates:
-                    out_string += "\n" + parms.tabs[i].to_markdown(clean=False) + "\n"
+                    out_string += "\n" + parms.tabs[i].to_markdown(clean=True, include_external=False) + "\n"
                     if EXTRACT_WORDS:
                         # for "words" extraction, add table cells as line rects
                         cells = sorted(
@@ -739,7 +739,7 @@ def to_markdown(
             ):
                 if i in parms.written_tables:
                     continue
-                this_md += parms.tabs[i].to_markdown(clean=False)
+                this_md += parms.tabs[i].to_markdown(clean=True, include_external=False)
                 if EXTRACT_WORDS:
                     # for "words" extraction, add table cells as line rects
                     cells = sorted(
@@ -760,7 +760,7 @@ def to_markdown(
             for i, trect in parms.tab_rects.items():
                 if i in parms.written_tables:
                     continue
-                this_md += parms.tabs[i].to_markdown(clean=False)
+                this_md += parms.tabs[i].to_markdown(clean=True, include_external=False)
                 if EXTRACT_WORDS:
                     # for "words" extraction, add table cells as line rects
                     cells = sorted(
